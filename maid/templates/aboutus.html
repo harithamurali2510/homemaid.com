@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<title>About Us</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+
+body, html {height: 100%}
+.bgimg {
+    /*background-image: url('/Users/Gokul/Documents/mini project/about.jpg');*/
+    min-height: 90%;
+    background-position: center;
+    background-size: cover;
+}
+body{
+  background-position: center;
+  background-size: cover;
+}
+</style>
+<body background="{% static 'img/about.jpg' %}"  >
+
+<div class="bgimg w3-display-container w3-text-white">
+  
+  <div class="w3-display-topleft w3-padding-jumbo w3-xlarge">
+    <p><button onclick="document.getElementById('about us').style.display='block'" class="w3-button w3-black">About Us</button></p>
+    <p><button onclick="document.getElementById('contact').style.display='block'" class="w3-button w3-black">Contact</button></p>
+  </div>
+  
+
+<!-- Menu Modal -->
+<div id="about us" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-black">
+      <span onclick="document.getElementById('about us').style.display='none'" class="w3-closebtn w3-xxlarge w3-hover-text-grey">x</span>
+      <h1>About Us</h1>
+    </div>
+    <div class="w3-container">
+      <h5> <font color="w3-black">Homemaid.com is a user oriented website to find potential maids for home help. This website is developed as a part of NSS unit of Model Engineering College under the guidance of NSS Staff in-charge <b>Mr. Jaimon Jacob</b>. He provided us with proper guidance and mentorship required to carry forward this project and helped us reach its completion.</font></h5>
+      
+    </div>
+    
+  </div>
+</div>
+
+<!-- Contact Modal -->
+<div id="contact" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-black">
+      <span onclick="document.getElementById('contact').style.display='none'" class="w3-closebtn w3-xxlarge w3-hover-text-grey">x</span>
+      <h1>Contact</h1>
+    </div>
+    <div class="w3-container">
+      <p><font color="w3-black">Gokul Harikumar:7034158750</font></p>
+      <p><font color="w3-black">Haritha Muralidharan:9495889488</font></p>
+      <p><font color="w3-black">Malavika Nampoothiri:9746321703</font></p>
+      <p><font color="w3-black">Vishnu V S:8281355568</font></p>
+      
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+

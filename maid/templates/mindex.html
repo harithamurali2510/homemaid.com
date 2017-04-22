@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Prospect 
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20130902
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href='http://fonts.googleapis.com/css?family=Englebert|Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+<link href="{% static 'css/default.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+
+<!--[if IE 6]>
+<link href="default_ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+</head>
+<body>
+<div id="header" class="container">
+	<div id="logo">
+		<h1><a href="#">Profile</a></h1>
+	</div>
+	<div id="menu">
+		<ul>
+			<li><a href="/ " accesskey="1" title="">Homepage</a></li>
+		</ul>
+	</div>
+</div>
+<div id="wrapper" class="container">
+	<div id="page">
+		<div id="content"> <a href="#" class="image-style"><img src="{% static 'img/man.png' %}" width="300" height="250" alt=""></a>
+		<!-- {{uploaded_file_url}} -->
+		<!-- <input  type="image" width="300" height="250"> -->
+		<!-- <div id="id02" class="w3-modal">
+                     <div class="w3-modal-content w3-card " style="max-width:600px">
+
+                <div class="w3-center"><br>
+                   <span onclick="document.getElementById('id02').style.display='none'" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">&times;</span>
+		<form action="upload.php" method="post" enctype="multipart/form-data"> {% csrf_token %}
+		<input type="file" name="fileToUpload" id="fileToUpload" > &emsp;
+		<input type="submit" value="Upload Image" name="submit" ><br/>.
+		</form>
+		</div>
+		</div>
+		</div> -->
+
+
+			<h2>Name : {{name}} </h2>
+					<p>Username : {{username}} </p> 
+					<p>Contact Number : {{phone}} </p> 
+					<p>Address &emsp; &emsp; &emsp;: {{address}} </p> 
+			<p><b>CURRENT STATUS &emsp;:{{availability}} </b></p>
+			<font color="red">Update your status each time you are hired</font><br/>
+
+			 &emsp;<button style="margin-top:0px;margin-left: 40%;float: left" onclick="document.getElementById('id01').style.display='block'" class="w3-btn w3-green w3-large">Update</button><br/>
+
+                 <div id="id01" class="w3-modal">
+                     <div class="w3-modal-content w3-card " style="max-width:600px">
+
+                      <div class="w3-center"><br>
+        <span onclick="document.getElementById('id01').style.display='none'" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">&times;</span>
+                 </div>
+
+              <form method="POST" action="/availability/"> {% csrf_token %}
+              <input type="text" name="username" value="{{username}}" hidden> 
+              <input type="text" name="availability" value="available" hidden> 
+              &emsp;<button type="submit" style="margin-top:20px;margin-left: 40%;float: left"  class="w3-btn w3-green w3-large">Available</button>
+              </form>
+
+              <form method="POST" action="/availability/"> {% csrf_token %}
+              <input type="text" name="username" value="{{username}}" hidden> 
+              <input type="text" name="availability" value="not available" hidden> 
+               <!-- <div class="w3-container">      -->  
+                &emsp;<button type="submit" style="margin-top:20px;margin-left: 40%; margin-bottom: 20px" class="w3-btn w3-green w3-large">Not Available</button><!-- </div> -->
+               </form>
+
+                </div>
+                </div>
+
+			</p>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,530 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HomeMaid</title>
+</head>
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<body >
+	<style type="text/css">
+
+    #body{
+      margin:0;
+      background-image: url(% static 'img/homemaid.png' %);
+      background-repeat: no-repeat; 
+      background-attachment:fixed;
+      color:#ffffff;
+    }
+
+
+		.bgimg {
+			/*background-image: url(% static "img/homemaid.png" %);*/
+			width: 1440px;
+			height: 400px;
+		}
+		#info{
+			width: 46%;
+			margin: auto;
+			font: "futura";
+			color: #2e2d2d;
+			float: left;
+			padding: 20px;
+		}
+
+		#start{
+			width:40%;
+			margin-top:380px;
+			margin-left: 80px;
+		}
+		button {
+    background-color: #f0f0f0;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    float: left;
+    
+  
+}
+label {
+color: #000; /* makes the text-black */
+}
+.wrapper {
+    text-align: center;
+}
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+
+/* Set a style for all buttons */
+#button1{
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    float: left;
+}
+#button2{
+    background-color: #ff0000;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+}
+/* Extra styles for the cancel button */
+.cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn,.signupbtn {float:left;width:50%}
+
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    color: #000;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+       width: 100%;
+    }
+}
+
+
+	</style>
+	<div style="color:#ffffff" class="bgimg" id="navbar" align="center">
+		<div  id="part2" >&emsp;
+               
+               &emsp;<button style="margin-left:30%;margin-right:auto;display:block;margin-top:auto;margin-bottom:0%" onclick="location.href='/ '">HOME</button>
+               &emsp; <button style="margin-top:auto" onclick="location.href='/aboutus'">About Us</button>
+                
+         </div> <br/>
+          <p> <img src="{% static 'img/hoomemaid.png' %}" width="800" height="250" alt=""> </p>
+
+  </div>  
+    
+          
+
+    <div class="w3-container" background = "{% static 'img/hoomepage.jpg' %}"  >
+
+    &emsp;<button style="margin-top:0px;margin-left: 40%;float: left" onclick="document.getElementById('id01').style.display='block'" class="w3-btn w3-green w3-large">Login</button><br/>
+
+                 <div id="id01" class="w3-modal">
+                     <div class="w3-modal-content w3-card " style="max-width:600px">
+
+                      <div class="w3-center"><br>
+        <span onclick="document.getElementById('id01').style.display='none'" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">&times;</span>
+                 </div>
+
+              &emsp;<button style="margin-top:20px;margin-left: 40%;float: left" onclick="document.getElementById('id03').style.display='block'" class="w3-btn w3-green w3-large">Maid</button>
+
+
+
+                  <div id="id03" class="w3-modal">
+    <div class="w3-modal-content w3-card " style="max-width:600px">
+
+      <div class="w3-center"><br>
+        <span onclick="document.getElementById('id03').style.display='none'" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">&times;</span>
+       
+      </div>
+
+      <form method="POST" class="w3-container" action="/maidlogin/">{% csrf_token %}
+        <div class="w3-section">
+          
+          <label><b>Username</b></label>
+          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
+          <label><b>Password</b></label>
+          <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
+          <button onclick= "location.href='profile.html'" class="w3-btn-block w3-green w3-section w3-padding" type="submit">Login</button>
+          
+        </div>
+      </form>
+
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <button onclick="document.getElementById('id03').style.display='none'" type="button" class="w3-btn w3-red">Cancel</button>
+        
+      </div>
+
+    </div>
+    </div>
+    
+                <div class="w3-container">        
+                &emsp;<button style="margin-top:20px;margin-left: 40%;float: left" onclick="document.getElementById('id02').style.display='block'" class="w3-btn w3-green w3-large">Client</button>
+
+                 <div id="id02" class="w3-modal">
+                     <div class="w3-modal-content w3-card " style="max-width:600px">
+
+                <div class="w3-center"><br>
+                   <span onclick="document.getElementById('id02').style.display='none'" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">&times;</span>
+                    <img src="{% static 'img/man.png' %}"  style="width:30%" class="w3-circle w3-margin-top">
+                </div>
+
+                <form method="POST" class="w3-container" action="/clientlogin/">{% csrf_token %}
+                   <div class="w3-section">
+                        <label><b>Username</b></label>
+                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
+                      <label><b>Password</b></label>
+                      <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
+                      <button onclick= "document.getElementById('id04').style.display='block'"  class="w3-btn-block w3-green w3-section w3-padding" type="submit">Login</button>
+                      
+                   </div>
+                </form>
+
+                <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                  <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-btn w3-red">Cancel</button>
+                  
+                </div>
+
+              </div>
+          </div>
+  </div>
+  </div>
+  </div>
+
+
+  <div class="w3-container">
+  <br/>
+    &emsp;<button style="margin-top:0px;margin-left: 40%;float: left" onclick="document.getElementById('id05').style.display='block'" class="w3-btn w3-green w3-large">Sign Up</button>
+
+
+      <div id="id05" class="w3-modal">
+                     <div class="w3-modal-content w3-card " style="max-width:600px; padding: 20px;
+                      padding-bottom: 80px;">
+
+                      <div class="w3-center"><br>
+        <span onclick="document.getElementById('id05').style.display='none'" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">&times;</span>
+                 </div>
+
+                 <h3>Disclaimer</h3>
+                  This website only acts as a mediator between the employer and the prospect. Any cases of misunderstandings, frauds or ill-doings from anyones part will not be claimed by website. The website cannot be deemed responsible for any such activities under any circumstances.<br/>
+
+
+
+              &emsp;<button style="margin-top:20px;margin-left: 40%; margin-bottom: 20px " onclick="document.getElementById('id09').style.display='block'" class="w3-btn w3-green w3-large">Agree</button>
+
+              </div></div>
+
+
+                 <div id="id09" class="w3-modal">
+                     <div class="w3-modal-content w3-card " style="max-width:600px">
+
+                      <div class="w3-center"><br>
+        <span onclick="document.getElementById('id09').style.display='none'" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">&times;</span>
+                 </div>
+
+
+              &emsp;<button style="margin-top:20px;margin-left: 40%;float: left" onclick="document.getElementById('id06').style.display='block'" class="w3-btn w3-green w3-large">Maid</button>
+
+
+                  <div id="id06" class="modal">
+          <span onclick="document.getElementById('id06').style.display='none'" class="close" title="Close Modal">×</span>
+            <form method = 'POST' class="modal-content animate" action="/homemaid/">{% csrf_token %}
+              <div class="container">
+
+          <label><b>District Code</b></label>
+           <select name="distcode">
+             <option value="TV" selected>Thiruvananthapuram</option>
+             <option value="ER">Ernakulam</option>
+             <option value="KZ">Kozhikode</option>
+             <option value="WA">Wayanad</option>
+             <option value="KS">Kasargod</option>
+             <option value="KN">Kannur</option>
+             <option value="KL">Kollam</option>
+             <option value="PL">Palakad</option>
+             <option value="PT">Pathanamthitta</option>
+             <option value="MA">Malappuram</option>
+             <option value="ID">Idukki</option>
+             <option value="KT">Kottayam</option>
+             <option value="AL">Alappuzha</option>
+             <option value="TS">Thrissur</option>
+             </select>
+          <br>
+
+                <label><b>Akshaya Centre Username</b></label>
+          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter centre username" name="cusrname" required><br>
+          <label><b>Akshaya Centre Password</b></label>
+          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter centre password" name="cpassword" required><br>
+
+                <label><b>Username</b></label>
+                  <input type="text" placeholder="Enter Username" name="usrname" required>
+
+
+              <label><b>Password</b></label>
+                  <input type="password" placeholder="Enter Password" name="psw" required>
+
+              <label><b>Repeat Password</b></label>
+                  <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+                  
+                  <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+                  <div class="clearfix">
+                    <button onclick="location.href=''" id="button1" class="signupbtn" type="submit" >Sign Up</button>
+                    <button id="button2" onclick="document.getElementById('id06').style.display='none'" class="cancelbtn">Cancel</button>
+                 </div>
+              </div>
+            </form>
+        </div>
+                 
+    
+                <div class="w3-container">        
+                &emsp;<button style="margin-top:20px;margin-left: 40%;float: left" onclick="document.getElementById('id07').style.display='block'" class="w3-btn w3-green w3-large">Client</button>
+
+                  <div id="id07" class="modal">
+          <span onclick="document.getElementById('id07').style.display='none'" class="close" title="Close Modal">×</span>
+            <form method = 'POST' class="modal-content animate" action="/homeclient/">{% csrf_token %}
+              <div class="container">
+
+                <label><b>Username</b></label>
+                  <input type="text" placeholder="Enter Username" name="usrname" required>
+
+
+              <label><b>Password</b></label>
+                  <input type="password" placeholder="Enter Password" name="psw" required>
+
+              <label><b>Repeat Password</b></label>
+                  <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+                  
+                  <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+                  <div class="clearfix">
+                    <button onclick="location.href=''" id="button1" class="signupbtn" type="submit" >Sign Up</button>
+                    <button id="button2" onclick="document.getElementById('id07').style.display='none'" class="cancelbtn">Cancel</button>
+                 </div>
+              </div>
+            </form>
+        </div>
+  </div>
+  </div>
+  </div>
+  </div>
+ </div>
+ 
+
+ 
+    			
+			   
+
+ 	<!--		<script>
+			// Get the modal
+				var modal = document.getElementById('id02');
+
+			// When the user clicks anywhere outside of the modal, close it
+				window.onclick = function(event) {
+   				 if (event.target == modal) {
+       				 modal.style.display = "none";
+    				}
+				}
+			</script>
+	 		<div id="id04" class="w3-modal">
+  <div class="w3-card-8 w3-black" style="width:50%">
+
+    <div class="w3-container w3-center">
+      <h3>GENDER</h3>
+      <div class="w3-section">
+        <form>
+           <input type="radio" name="gender" value="MALE"> MALE
+           <input type="radio" name="gender" value="FEMALE"> FEMALE
+        </form>
+      </div>
+    </div>
+    <div class="w3-container w3-center">
+      <h3>AGE</h3>
+      <div class="w3-section">
+        <form>
+           <select name="dropdown">
+             <option value="20-30" selected>20-30</option>
+             <option value="30-40">30-40</option>
+             <option value="40-50">40-50</option>
+             <option value="above 50">above 50</option>
+           </select>
+        </form>
+      </div>
+    </div>
+    
+    <div class="w3-container w3-center">
+     <h3>WORK FIELD</h3>
+      <div class="w3-section">
+        <form>
+           <select name="dropdown">
+             <option value="cooking" selected>cooking</option>
+             <option value="cleaning">cleaning</option>
+             <option value="baby sitting">baby sitting</option>
+             <option value="elderly care">elderly care</option>
+             <option value="pregnancy care">pregnancy care</option>
+           </select>
+        </form>
+      </div>
+    </div>
+
+  <div class ="w3-container w3-center">
+    <h3>WORK LOCATION</h3>
+      <div class="w3-section">
+        <form >
+            state:  <input type="text" name="state" />
+            city:  <input type="text" name="city" />
+            
+        </form>
+      </div>
+    </div>
+
+  <div class ="w3-container w3-center">
+    <h3>WORK TYPE</h3>
+      <div class="w3-section">
+        <form >
+            <select name="dropdown">
+               <option value="full time" selected>full time</option>
+               <option value="part time">part time</option>
+             </select>
+        </form>
+      </div>
+    </div>
+
+
+   <div class ="w3-container w3-center ">
+    <h3>WORK DURATION</h3>
+      <div class="w3-section">
+        <form >
+            duration:  <input type="text" name="hours" />
+            <select name="dropdown">
+               <option value="hours" selected>hours</option>
+               <option value="weeks">weeks</option>
+               <option value="months">months</option>
+               <option value="years">years</option>
+             </select>
+        </form>
+      </div>
+    </div>
+
+    <div class ="w3-container w3-center">
+    <h3>MAX BUDGET</h3>
+      <div class="w3-section">
+        <form >
+            amount(Rs):  <input type="text" name="amount" />
+            
+        </form>
+      </div>
+    </div>
+  <div class ="w3-container w3-center">
+      <div class="w3-section">
+        <button class="w3-btn w3-red">SUBMIT</button>
+      </div>
+    </div>
+   
+    
+    </div>
+    </div>
+
+  </div>
+</div>
+<script>
+// Get the modal
+var modal = document.getElementById('id04');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script> 
+		
+
+
+	</div> -->
+			
+
+        
+</div>
+	
+	<div id="info">
+		<div class="w3-card-4">
+            <header class="w3-container w3-blue">
+                <h1>What We Do?</h1>
+            </header>
+
+        <div class="w3-container">
+            <p>A common problem faced by numerous urban house-holds is the difficulty in finding a suitable house keeper. When attempting to find such a housekeeper, the main problem they usually encounter is in finding a maid who meets all their required criteria. These details are done by third party private agencies, which are not affiliated to any government organisation and charge exorbitant amount of money in the form of commission.
+            To combat this, our website aims to act as a connecting bridge between urban and rural households, by bringing suitable house help as well as provide a consistent source of income to rural households.</p>
+        </div>
+    </div>
+		
+	</div>
+	<div id="info">
+	   <div class="w3-card-4">
+
+          <header class="w3-container w3-blue">
+          <h1>How it works?</h1>
+          </header>
+
+          <div class="w3-container">
+		
+		       <p>In the maid login page, respective e-Akshaya centres can login and add members when they are approached. The main credentials of the aforesaid maid are entered. The client page, after login, shows the closest results, filtered according to the type of chores required as well as the monthly salary of the maid. Then a suitable maid is found, the client can view all their details and contact him/her for further clarification. After every term of employment, the maid has to notify the e-Akshaya centre, so that his/her profile can again be deemed as available.</p>
+		
+	       </div>
+	    </div>
+	</div>
+</body>
+</html>

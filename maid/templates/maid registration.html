@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<style>
+input[type=text], select, textarea {
+    width: 65%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+}
+input[type=stext], select, textarea {
+    width: 10%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+}
+input[type=mtext], select, textarea {
+    width: 25%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+}
+
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.container {
+    border-radius: 30px;
+    background-color: #f2f2f2;
+    padding: 70px;
+}
+#button1{
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+    float: left;
+}
+button {
+    background-color: #f0f0f0;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    float: left;
+  }
+</style>
+</head>
+<body>
+<div style="color:#ffffff" class="bgimg" id="navbar" align="center">
+    <div  id="part2" >&emsp;
+                &emsp;<button style="margin-top:auto" onclick="location.href='/ '">HOME</button>
+                
+         </div> 
+<br>
+<br>
+
+<h3><font color="black"> Maid Registration Form</font></h3>
+
+<div style="color:#000000" class="container">
+
+  <form method ="POST" action="/maid/"> {%csrf_token%}
+     Username :   {{username}} 
+    <input type="text" name="usrname" value="{{username}}" hidden>
+    <br>
+    <label for="fname">Full Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+    <br>
+    <label for="age">Age</label>
+    <input type="text" id="age" name="age" placeholder="Your age..">
+    <br>
+    <label for="gender">Gender</label>
+    <select name="gender">
+       <option value="male" selected>male</option>
+       <option value="female">female</option>
+    </select>
+    <br>
+    <label for="address">Address</label>
+    <input type="text" id="address" name="address" placeholder="address..">
+    <br>
+    <label for="phone">Phone</label>
+    <input type="mtext" id="phone" name="phone" placeholder="phone..">
+    <br>
+    <label for="field">Work field</label>
+       <select name="field">
+       <option value="cooking" selected>cooking</option>
+       <option value="cleaning">cleaning</option>
+       <option value="baby sitting">baby sitting</option>
+       <option value="elderly care">elderly care</option>
+       <option value="pregnancy care">pregnancy care</option>
+       </select>
+    <br>
+      <label for="worktype">Work type</label>
+       <select name="worktype">
+        <option value="full time" selected>full time</option>
+        <option value="part time">part time</option>
+       </select>
+    <br>
+     <label for="availability">Your current status:</label>
+       <select name="availability">
+        <option value="available" selected>available</option>
+        <option value="not available">not available</option>
+       </select>
+    <br>
+
+
+ 
+
+
+
+    <button  class="w3-btn-block w3-green w3-section w3-padding" id="button1" >Submit</button>
+    
+</div>
+
+</body>
+</html>
